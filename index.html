@@ -43,20 +43,20 @@
 
     <script>
         function comparePrices() {
-            let item = document.getElementById("item").value;
+            const item = document.getElementById("item").value;
 
-            let prices = {
+            const prices = {
                 "burger": { "Whataburger": "$4.99", "McDonald's": "$5.49", "Burger King": "$5.29" },
                 "fries": { "Whataburger": "$2.49", "McDonald's": "$2.79", "Burger King": "$2.69" },
                 "drink": { "Whataburger": "$1.99", "McDonald's": "$2.19", "Burger King": "$2.09" }
             };
 
-            let resultTable = document.getElementById("result");
+            const resultTable = document.getElementById("result");
             resultTable.innerHTML = "";
 
             if (prices[item]) {
-                for (let chain in prices[item]) {
-                    let row = <tr><td>${chain}</td><td>${prices[item][chain]}</td></tr>;
+                for (const chain in prices[item]) {
+                    const row = <tr><td>${chain}</td><td>${prices[item][chain]}</td></tr>;
                     resultTable.innerHTML += row;
                 }
             } else {
