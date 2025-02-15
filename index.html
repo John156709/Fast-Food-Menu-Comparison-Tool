@@ -44,7 +44,7 @@
     <script>
         function comparePrices() {
             let item = document.getElementById("item").value;
-            
+
             let prices = {
                 "burger": { "Whataburger": "$4.99", "McDonald's": "$5.49", "Burger King": "$5.29" },
                 "fries": { "Whataburger": "$2.49", "McDonald's": "$2.79", "Burger King": "$2.69" },
@@ -54,9 +54,13 @@
             let resultTable = document.getElementById("result");
             resultTable.innerHTML = "";
 
-            for (let chain in prices[item]) {
-                let row = <tr><td>${chain}</td><td>${prices[item][chain]}</td></tr>;
-                resultTable.innerHTML += row;
+            if (prices[item]) {
+                for (let chain in prices[item]) {
+                    let row = <tr><td>${chain}</td><td>${prices[item][chain]}</td></tr>;
+                    resultTable.innerHTML += row;
+                }
+            } else {
+                resultTable.innerHTML = <tr><td colspan="2">No data available</td></tr>;
             }
         }
     </script>
