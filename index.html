@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast-Food Menu Comparison Tool</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 40px; }
+        table { width: 80%; margin: auto; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: center; }
+        th { background-color: #f4f4f4; }
+        select, button { padding: 10px; margin: 10px; }
+        .container { max-width: 600px; margin: auto; text-align: left; }
+        h1, h2 { color: #D62300; }
+        a { color: #0073e6; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h1>Fast-Food Menu Comparison Tool</h1>
+
+    <label for="item">Select Your Item:</label>
+    <select id="item">
+        <option value="burger">Burger</option>
+        <option value="fries">Fries</option>
+        <option value="drink">Soft Drink</option>
+    </select>
+
+    <button onclick="comparePrices()">Compare Prices</button>
+
+    <h2>Price Comparison</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Fast-Food Chain</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody id="result">
+            <tr><td colspan="2">Select an item and click "Compare Prices"</td></tr>
+        </tbody>
+    </table>
+
+    <script>
+        function comparePrices() {
+            let item = document.getElementById("item").value;
+            
+            let prices = {
+                "burger": { "Whataburger": "$4.99", "McDonald's": "$5.49", "Burger King": "$5.29" },
+                "fries": { "Whataburger": "$2.49", "McDonald's": "$2.79", "Burger King": "$2.69" },
+                "drink": { "Whataburger": "$1.99", "McDonald's": "$2.19", "Burger King": "$2.09" }
+            };
+
+            let resultTable = document.getElementById("result");
+            resultTable.innerHTML = "";
+
+            for (let chain in prices[item]) {
+                let row = <tr><td>${chain}</td><td>${prices[item][chain]}</td></tr>;
+                resultTable.innerHTML += row;
+            }
+        }
+    </script>
+
+    <hr>
+
+    <div class="container">
+        <h2>🔥 Features:</h2>
+        <ul>
+            <li>Compare fast-food prices across major chains</li>
+            <li>Simple and user-friendly interface</li>
+            <li>Works on all devices (Mobile & Desktop)</li>
+            <li>Fast and lightweight tool</li>
+        </ul>
+
+        <h2>🚀 How to Use:</h2>
+        <ol>
+            <li>Select your food item from the dropdown menu</li>
+            <li>Click on the <b>"Compare Prices"</b> button</li>
+            <li>See the price comparison for Whataburger, McDonald's, and Burger King</li>
+        </ol>
+
+        <h2>📌 More Information:</h2>
+        <p>👉 <a href="https://whatburgermenu.com" target="_blank">More details on WhatBurgerMenu</a></p>
+
+        <h2>📩 Contribution & Support:</h2>
+        <p>Feel free to <b>fork this project</b>, suggest improvements, or use it on your own website. If you find this tool helpful, consider sharing it with others.</p>
+    </div>
+
+</body>
+</html>
